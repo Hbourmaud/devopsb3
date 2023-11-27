@@ -8,7 +8,7 @@ use std::env;
 
 fn main() {
     let port = env::var("PING_LISTEN_PORT").unwrap_or(7878.to_string());
-    let listener = TcpListener::bind(format!("127.0.0.1:{port}")).unwrap();
+    let listener = TcpListener::bind(format!("0.0.0.0:{port}")).unwrap();
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
