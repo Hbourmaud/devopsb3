@@ -2,6 +2,7 @@
 
 ## Sommaire
  - [wik-dps-tp01](#wik-dps-tp01)
+ - [wik-dps-tp02](#wik-dps-tp02)
 
 ## wik-dps-tp01
 
@@ -42,3 +43,41 @@ Ainsi le port utilisé sera 7800 donc la route joignable sera http://localhost:7
 ### Dépendance utilisée
 
 **serde_json** https://crates.io/crates/serde_json/1.0.108
+
+## wik-dps-tp02
+
+*Les fichiers concernant ce tp se trouvent dans le répertoire ``tp-wik-dps-tp01`` pour plus de facilité d'usage.*
+
+### Simple Stage
+
+Le dockerfile utilisant un seul stage pour exécuter l'API se nomme [Dockerfile](tp-wik-dps-tp01/Dockerfile)
+
+Pour créer l'image liée à ce dockerfile, déplacez vous à l'endroit du repo: ``tp-wik-dps-tp01``
+
+Puis:
+``docker build -t my-rust-app .``
+
+Pour lancer le container correspondant:
+``docker run -it --rm -e PING_LISTEN_PORT=8080 -p 7200:8080 my-rust-app``
+
+*Il y a toujours la possibilité de personnaliser le port d'écoute et également de changer le port correspondant de docker pour pouvoir y accéder sur la machine hôte (-p 7200:8080 ici).*
+
+### Scan trivy
+
+[trivy_result.txt](trivy_result.txt)
+
+On remarque qu'il y a 758 vulnérabilités trouvées dont 3 critiques sur l'image my-rust-app créé juste avant.
+
+### Multiple stage
+
+Le dockerfile utilisant deux stages pour exécuter l'API se nomme [multistage.dockerfile](tp-wik-dps-tp01/multistage.dockerfile)
+
+Pour créer l'image liée à ce dockerfile, déplacez vous à l'endroit du repo: ``tp-wik-dps-tp01``
+
+Puis:
+``docker build -t my-rust-app -f .\multistage.dockerfile .``
+
+Pour lancer le container correspondant:
+``docker run -it --rm -e PING_LISTEN_PORT=8080 -p 7200:8080 my-rust-app``
+
+*Il y a toujours la possibilité de personnaliser le port d'écoute et également de changer le port correspondant de docker pour pouvoir y accéder sur la machine hôte (-p 7200:8080 ici).*
