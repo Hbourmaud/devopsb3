@@ -3,7 +3,7 @@
 ## Sommaire
  - [wik-dps-tp01](#wik-dps-tp01)
  - [wik-dps-tp02](#wik-dps-tp02)
- - [wik-dps-tp03](#wik-dps-tp03) 
+ - [wik-dps-tp03](#wik-dps-tp03)
 
 ## wik-dps-tp01
 
@@ -94,3 +94,9 @@ L'API est donc maintenant accessible via : ``http://localhost:8080/ping``
 
 Pour afficher à chaque requête *ping* le hostname, une dépendance dans le code Rust a été ajoutée: 
 - [gethostname](https://crates.io/crates/gethostname)
+
+### wik-dps-tp03 (bonus)
+
+C'est qu'un essai/ébauche, je ne pense pas que tout soit 100% fonctionelle.
+
+[Bonus](tp-wik-dps-tp03-bonus/)
