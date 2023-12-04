@@ -5,6 +5,7 @@ use std::{
 
 use serde_json::{json,Map, Value};
 use std::env;
+use gethostname::gethostname;
 
 fn main() {
     let port = env::var("PING_LISTEN_PORT").unwrap_or(7878.to_string());
@@ -28,9 +29,11 @@ fn handle_connection(mut stream: TcpStream) {
         .take_while(|line| !line.is_empty())
         .collect();
 
-    if http_request[0] == "GET /ping HTTP/1.1" {
+    if http_request[0] == "GET /ping HTTP/1.1" || http_request[0] == "GET /ping HTTP/1.0" {
 
         let status_line = "HTTP/1.1 200 OK";
+
+        println!("Hostname: {:?}", gethostname());
 
         for line in http_request {
             let key_value: Vec<_> = line.splitn(2,':').collect();
