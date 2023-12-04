@@ -3,6 +3,7 @@
 ## Sommaire
  - [wik-dps-tp01](#wik-dps-tp01)
  - [wik-dps-tp02](#wik-dps-tp02)
+ - [wik-dps-tp03](#wik-dps-tp03) 
 
 ## wik-dps-tp01
 
@@ -81,3 +82,15 @@ Pour lancer le container correspondant:
 ``docker run -it --rm -e PING_LISTEN_PORT=8080 -p 7200:8080 my-rust-app``
 
 *Il y a toujours la possibilité de personnaliser le port d'écoute et également de changer le port correspondant de docker pour pouvoir y accéder sur la machine hôte (-p 7200:8080 ici).*
+
+## wik-dps-tp03
+
+Le fichier docker compose se trouve dans le répertoire *tp-wik-dps-tp03*:  [docker-compose](tp-wik-dps-tp03/docker-compose.yaml)
+
+Pour utiliser le docker-compose:
+``docker compose up --build``
+
+L'API est donc maintenant accessible via : ``http://localhost:8080/ping``
+
+Pour afficher à chaque requête *ping* le hostname, une dépendance dans le code Rust a été ajoutée: 
+- [gethostname](https://crates.io/crates/gethostname)
