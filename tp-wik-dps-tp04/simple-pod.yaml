@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: wik-dps-tp02
+spec:
+  containers:
+  - name: wik-dps-tp02
+    image: registry.cluster.wik.cloud/public/echo
+    ports:
+    - containerPort: 8080
