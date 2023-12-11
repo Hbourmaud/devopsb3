@@ -4,6 +4,7 @@
  - [wik-dps-tp01](#wik-dps-tp01)
  - [wik-dps-tp02](#wik-dps-tp02)
  - [wik-dps-tp03](#wik-dps-tp03)
+ - [wik-dps-tp04](#wik-dps-tp04)
 
 ## wik-dps-tp01
 
@@ -100,3 +101,27 @@ Pour afficher à chaque requête *ping* le hostname, une dépendance dans le cod
 C'est qu'un essai/ébauche, je ne pense pas que tout soit 100% fonctionelle.
 
 [Bonus](tp-wik-dps-tp03-bonus/)
+
+## wik-dps-tp04
+
+### Pod
+[single-pod](tp-wik-dps-tp04/simple-pod.yaml)
+
+### ReplicaSet
+[replica](tp-wik-dps-tp04/replicaset.yaml)
+
+### Deployment
+[deployment](tp-wik-dps-tp04/deployment.yaml)
+
+### Service
+[service](tp-wik-dps-tp04/service.yaml)
+
+### Ingress
+[ingress](tp-wik-dps-tp04/minimal-ingress.yaml)
+
+Le nom de domaine choisi est *test.api.com*
+
+Ajouter ``127.0.0.1 test.api.com`` dans /etc/hosts
+
+L'api est accessible depuis ce nom:
+![Domain Name](tp-wik-dps-tp04/domain_name.png)
